@@ -1,11 +1,15 @@
-const axios = require('axios');
+// npm i graphql, axios
+
+const axios = require('axios'); // Bring in Axios
+
+// Bring in GraphQL dependencies
 const {
-    GraphQLObjectType,
-    GraphQLString,
-    GraphQLInt,
     GraphQLSchema,
-    GraphQLList,
-    GraphQLNonNull,
+        GraphQLObjectType, // Creates Object
+        GraphQLList, // Creates List
+        GraphQLNonNull, // Creates Field that is required
+            GraphQLString,
+            GraphQLInt,
 } = require('graphql');
 
 // Hardcoded data
@@ -15,7 +19,7 @@ const {
 //     { id: '3', name: 'B', email: 'B@gmail.com', age: 30 },
 // ]
 
-// CustomerType
+// Customer Object SCHEMA
 const CustomerType = new GraphQLObjectType({
     name:'Customer',
     fields: () => ({
@@ -26,16 +30,17 @@ const CustomerType = new GraphQLObjectType({
     })
 })
 
-// Root Query
+// Root QUERY //
 const RootQuery = new GraphQLObjectType({
     name:'RootQueryType',
     fields:{
-        customer: {
+        customer: { // Get a Single Customer
             type: CustomerType,
             args: {
-                id: { type: GraphQLString }
+                id: { type: GraphQLString } // by their ID
             },
             resolve(parentValue, args) {
+                
                 // Looping through hardcoded data
                 // for (let i = 0; i < customers.length; i++) {
                 //     if (customers[i].id === args.id) {
@@ -43,14 +48,17 @@ const RootQuery = new GraphQLObjectType({
                 //     }
                 // }
 
+                // Return the customer with the id passed in the query
                 return axios.get('http://localhost:3000/customers/' + args.id)
                         .then(res => res.data);
             }
         },
-        customers:{
-            type: new GraphQLList(CustomerType),
+        customers:{ // Get ALL Customers
+            type: new GraphQLList(CustomerType), // Creates List of Customer Objects (from above)
             resolve(parentValue, args){
                 // return customers;
+
+                // Return all customers
                 return axios.get('http://localhost:3000/customers/')
                     .then(res => res.data);
             }
@@ -58,7 +66,7 @@ const RootQuery = new GraphQLObjectType({
     }
 });
 
-// Mutations
+// MUTATIONS //
 const mutation = new GraphQLObjectType({
     name:'Mutation',
     fields:{
@@ -108,3 +116,25 @@ module.exports = new GraphQLSchema({
     query:RootQuery,
     mutation
 })
+
+// Single Customer Query
+    // {
+    //     customer(id:"1") {
+    //        id
+    //        name
+    //        email
+    //        age
+    //     }
+    // }
+// Returns the { id, name, email and age } of a Single customer with the ID of "1"
+
+// All Customers Query
+    // {
+    //     customers {
+    //         id
+    //         name
+    //         email
+    //         age
+    //     }
+    // }
+// Returns the { id, name, email and age } of ALL customers

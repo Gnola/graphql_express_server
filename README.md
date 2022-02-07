@@ -1,6 +1,10 @@
-# [GraphQL and Express Server with (TM)](https://www.youtube.com/watch?v=PEcJxkylcRM&list=PLillGF-RfqbYZty73_PHBqKRDnv7ikh68&index=2)
+# [GraphQL and Express Server (TM)](https://www.youtube.com/watch?v=PEcJxkylcRM&list=PLillGF-RfqbYZty73_PHBqKRDnv7ikh68&index=2)
+- Node
+- Express
+- GraphQL
+- Axios
 
-## Set UP
+## Set Up
 
 ### Initialize Project
 `npm init`
@@ -32,3 +36,9 @@
 ### Starting Up
 - `npm run dev:server` - 'localhost/4000/graphql' provides us with our graphiql interface
 - `npm run json:server` - 'localhost/3000/customers' provides us with our data
+
+---
+
+### Additional Notes
+- Does **not** use a DB
+- Is **not** deployed anywhere

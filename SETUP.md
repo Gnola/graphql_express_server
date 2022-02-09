@@ -6,22 +6,13 @@ In **root directory**
   npm init
 ```
 
-
-### Install Dependencies ???????
-
-### Dev Dependencies (`--save`)
-- `npm i express`
-- `npm i express-graphql`
-- `npm i graphql`
-- `npm i nodemon`
-- `npm i json-server --save`
-- `npm i axios`
-
+### Install Dependencies
 
 In **root directory**
 
 ```bash
-  npm i express express-graphql graphql
+  npm i express express-graphql nodemon --save
+  npm i json-server axios --save
 ```
 
 ### Edit Files
@@ -41,9 +32,14 @@ In **root directory**
 }
 ```
 
+---
+
 ### Run Locally
 
-| Command               | Location  | What       | URL                               | Access   |
-| :-------------------- | :-------- | :--------- | :-------------------------------- | :------- |
-| `npm run dev:server`  | **root**  | **Server** | *http::/localhost/4000/graphql*   | GraphiQL |
-| `npm run json:server` | **root**  | **Both**   | *http::/localhost/3000/customers* | Data     |
+| Location | Command               | Runs       | URL                             | Access   |
+| :------- | :-------------------- | :--------- | :------------------------------ | :------- |
+| /root    | `npm run dev:server`  | **Server** | *http://localhost/4000/graphql* | GraphiQL |
+| /root    | `npm run json:server` | **Both**   | *http://localhost/3000*         | Docs     |
+
+
+Start **both servers** and navigate to *http://localhost:4000/graphql* to make queries/mutations

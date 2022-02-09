@@ -1,44 +1,57 @@
-# [GraphQL and Express Server (TM)](https://www.youtube.com/watch?v=PEcJxkylcRM&list=PLillGF-RfqbYZty73_PHBqKRDnv7ikh68&index=2)
-- Node
-- Express
-- GraphQL
-- Axios
+# GraphQL and Express Server
 
-## Set Up
+This app...
 
-### Initialize Project
-`npm init`
 
-### Dev Dependencies (`--save`)
-- `npm i express`
-- `npm i express-graphql`
-- `npm i graphql`
-- `npm i nodemon`
-- `npm i json-server --save`
-- `npm i axios`
+### Tech Used
 
-### File Set Up
-- In `package.json`
+#### Node / Express
 
-```json
-/* Change this */
-"scripts": {
-  "test": "echo \"Error: no test specified\" && exit 1"
-}
+#### GraphQL
 
-/* To this */
-"scripts": {
-  "dev:server": "nodemon server.js",
-  "json:server": "json-server --watch data.json"
-}
+#### Axios
+
+
+### Databases
+
+This project does **not** use a DB
+
+
+### Deployment
+
+This project is **not** deployed
+
+
+### APIs
+
+#### GET
+
+```http
+  GET /api/items
 ```
 
-### Starting Up
-- `npm run dev:server` - 'localhost/4000/graphql' provides us with our graphiql interface
-- `npm run json:server` - 'localhost/3000/customers' provides us with our data
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `api_key` | `string` | **Required**. Your API key |
+
+
+
+### Run Locally
+
+| Command          | Location    | What           | URL                             | Access   |
+| :--------------- | :--------   | :------------- | :------------------------------ | :------- |
+| `npm run server` | **root**    | **Server**     | *http::/localhost/5000/graphql* | GraphiQL |
+
 
 ---
 
-### Additional Notes
-- Does **not** use a DB
-- Is **not** deployed anywhere
+### Related
+
+Here are some related projects
+
+[Awesome README](https://github.com/matiassingers/awesome-readme)
+
+---
+
+### Resources
+- [GraphQL and Express Server (TM)](https://www.youtube.com/watch?v=PEcJxkylcRM&list=PLillGF-RfqbYZty73_PHBqKRDnv7ikh68&index=2)
